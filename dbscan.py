@@ -12,7 +12,7 @@ e, minPointsCount = 5, 3
 color_list = []
 for i in range(n):
     color_list.append('pink')
-# colors_list = list(colorsq._colors_full_map.values())
+
 colors = ['lavenderblush', 'blue', 'green', 'cyan', 'magenta', 'yellow', 'black', 'darkmagenta', 'darkorange', 'maroon',
           'pink', 'crimson', 'lime', 'red', 'gray', 'olive', 'dodgerblue', 'skyblue']
 
@@ -20,14 +20,15 @@ x = [np.random.randint(1, 50) for i in range(n)]
 y = [np.random.randint(1, 50) for i in range(n)]
 flags = []
 for i in range(0, n):
-    neighb = 0
+    sosedi = 0
     for j in range(0, n):
         if dist(x[i], y[i], x[j], y[j]) <= e:
-            neighb += 1
-    if neighb > minPointsCount:
+            sosedi += 1
+    if sosedi > minPointsCount:
         flags.append('g')
     else:
         flags.append('black')
+
 for i in range(0, n):
     if flags[i] == 'black':
         for j in range(0, n):
@@ -35,8 +36,10 @@ for i in range(0, n):
                 if dist(x[i], y[i], x[j], y[j]) <= e:
                     flags[i] = 'y'
 cluster = []
+
 for i in range(n):
     cluster.append(0)
+
 c = 1
 for i in range(0, n):
     if flags[i] == 'g':
@@ -72,8 +75,11 @@ for i in range(n):
     for j in range(len(colors)):
         if cluster[i] == j:
             color_list[i] = colors[j]
+
+
 cluster.sort()
 print(cluster)
+
 for i in range(0, n):
     plt.scatter(x[i], y[i], color=flags[i])
 plt.show()

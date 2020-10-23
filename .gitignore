@@ -7,10 +7,3 @@
 *.iml
 out
 gen
-.gitignore
-.idea/.gitignore
-.idea/inspectionProfiles/
-.idea/misc.xml
-.idea/mo.iml
-.idea/modules.xml
-.idea/vcs.xml
